@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Book a Free Strategy Call | Ji Digital Works</title>
+<meta name="description" content="Book a free 20-minute strategy call. Leave with a clear delegation plan — even if you don't hire us. Replies within 4 business hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:#0F172A;background:#FFFFFF;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}input,textarea{font-family:'Poppins',system-ui,sans-serif}</style>
+</helmet>
+<dc-import name="Site Header" style="position:sticky;top:0;z-index:120" hint-size="100%,73px"></dc-import>
+
+<section data-screen-label="Contact hero" style="background:linear-gradient(135deg,#030712 0%,#07111F 50%,#0B1B2B 100%);padding:clamp(48px,6vw,72px) clamp(20px,4vw,40px);text-align:center">
+  <div style="max-width:760px;margin:0 auto">
+    <h1 style="margin:0 0 14px;color:#FFFFFF;font-size:clamp(28px,3.8vw,46px);font-weight:600;line-height:1.14;letter-spacing:-0.025em;text-wrap:balance">Book a free strategy call</h1>
+    <p style="margin:0 auto;max-width:600px;color:rgba(255,255,255,0.78);font-size:14.5px;line-height:1.7;text-wrap:pretty">20 minutes. No pitch, no pressure. Leave with a clear delegation plan — even if you don't hire us.</p>
+  </div>
+</section>
+
+<section data-screen-label="Contact form" style="background:#EAF6FF;padding:clamp(48px,6vw,80px) clamp(20px,4vw,40px)">
+  <div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,3vw,36px)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+        <h2 style="margin:0;font-size:18px;font-weight:600">Tell us what you need</h2>
+        <span style="font-size:11.5px;font-weight:600;color:#94A3B8">{{ stepLabel }}</span>
+      </div>
+      <div style="height:4px;background:#EEF2F7;border-radius:99px;margin-bottom:26px;overflow:hidden"><div style="height:100%;width:{{ progressW }};background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);border-radius:99px;transition:width .25s ease"></div></div>
+
+      <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div><label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#334155">Your name *</label><input value="{{ name }}" onChange="{{ setName }}" placeholder="Jane Smith" style="width:100%;border:1px solid #CBD5E1;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#0F172A;outline:none;background:#FFFFFF" style-focus="border-color:#0369A1"></div>
+          <div><label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#334155">Work email *</label><input value="{{ email }}" onChange="{{ setEmail }}" placeholder="jane@company.com" style="width:100%;border:1px solid #CBD5E1;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#0F172A;outline:none;background:#FFFFFF" style-focus="border-color:#0369A1"></div>
+          <div><label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#334155">Company website <span style="font-weight:400;color:#94A3B8">(optional)</span></label><input value="{{ website }}" onChange="{{ setWebsite }}" placeholder="company.com" style="width:100%;border:1px solid #CBD5E1;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#0F172A;outline:none;background:#FFFFFF" style-focus="border-color:#0369A1"></div>
+          <button onClick="{{ next }}" style="background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);color:#07111F;font-size:14px;font-weight:600;border:none;padding:15px 24px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="background:linear-gradient(135deg,#7DD3FC 0%,#38BDF8 100%)">Continue →</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:9px;color:#334155">What do you need help with? * <span style="font-weight:400;color:#94A3B8">(pick any)</span></label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ serviceChips }}" as="chip" hint-placeholder-count="7">
+                <button onClick="{{ chip.toggle }}" style="{{ chip.style }}">{{ chip.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:9px;color:#334155">Monthly budget *</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ budgetChips }}" as="chip" hint-placeholder-count="4">
+                <button onClick="{{ chip.pick }}" style="{{ chip.style }}">{{ chip.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:9px;color:#334155">When do you want to start? *</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ timingChips }}" as="chip" hint-placeholder-count="3">
+                <button onClick="{{ chip.pick }}" style="{{ chip.style }}">{{ chip.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button onClick="{{ back }}" style="background:transparent;color:#64748B;font-size:13.5px;font-weight:500;border:1px solid #CBD5E1;padding:14px 22px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="border-color:#0369A1;color:#0369A1">← Back</button>
+            <button onClick="{{ next }}" style="flex:1;background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);color:#07111F;font-size:14px;font-weight:600;border:none;padding:15px 24px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="background:linear-gradient(135deg,#7DD3FC 0%,#38BDF8 100%)">Continue →</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div><label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#334155">What's the #1 thing you want off your plate? *</label><textarea value="{{ note }}" onChange="{{ setNote }}" rows="4" placeholder="e.g. My inbox, our social accounts, CRM data entry…" style="width:100%;border:1px solid #CBD5E1;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#0F172A;outline:none;resize:vertical;background:#FFFFFF" style-focus="border-color:#0369A1"></textarea></div>
+          <div><label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#334155">Country / timezone</label><input value="{{ country }}" onChange="{{ setCountry }}" placeholder="e.g. USA — EST" style="width:100%;border:1px solid #CBD5E1;border-radius:10px;padding:13px 14px;font-size:13.5px;color:#0F172A;outline:none;background:#FFFFFF" style-focus="border-color:#0369A1"></div>
+          <div style="display:flex;gap:10px">
+            <button onClick="{{ back }}" style="background:transparent;color:#64748B;font-size:13.5px;font-weight:500;border:1px solid #CBD5E1;padding:14px 22px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="border-color:#0369A1;color:#0369A1">← Back</button>
+            <button onClick="{{ submit }}" style="flex:1;background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);color:#07111F;font-size:14px;font-weight:600;border:none;padding:15px 24px;border-radius:999px;cursor:pointer;font-family:inherit" style-hover="background:linear-gradient(135deg,#7DD3FC 0%,#38BDF8 100%)">Submit &amp; pick a call time</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:18px 0">
+          <div style="width:56px;height:56px;border-radius:50%;background:#EAF6FF;color:#0369A1;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">✓</div>
+          <h3 style="margin:0 0 8px;font-size:18px;font-weight:600">Thanks{{ doneName }} — you're in.</h3>
+          <p style="margin:0 0 20px;font-size:13px;line-height:1.7;color:#64748B">We reply within 4 business hours. Want to skip the wait? Grab a call slot right now:</p>
+          <a href="mailto:hello@jidigitalworks.com" style="display:inline-block;background:#07111F;color:#FFFFFF;font-size:13.5px;font-weight:600;text-decoration:none;padding:14px 28px;border-radius:999px" style-hover="background:#0369A1">Open scheduling calendar ↗</a>
+          <p style="margin:16px 0 0;font-size:11.5px;color:#94A3B8">Calendly / booking link goes here.</p>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="background:#07111F;border-radius:20px;padding:clamp(24px,3vw,32px)">
+        <h2 style="margin:0 0 10px;color:#FFFFFF;font-size:17px;font-weight:600">Prefer to book directly?</h2>
+        <p style="margin:0 0 18px;color:rgba(255,255,255,0.75);font-size:13px;line-height:1.7">Skip the form and pick a time that suits your timezone — EST, CST, PST, UK, Gulf, or Australian hours.</p>
+        <a href="mailto:hello@jidigitalworks.com" style="display:inline-block;background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);color:#07111F;font-size:13.5px;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:999px" style-hover="background:linear-gradient(135deg,#7DD3FC 0%,#38BDF8 100%)">Open scheduling calendar ↗</a>
+        <p style="margin:14px 0 0;color:rgba(255,255,255,0.45);font-size:11px">Placeholder — paste your Calendly link here.</p>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,3vw,32px)">
+        <h3 style="margin:0 0 14px;font-size:15px;font-weight:600">Other ways to reach us</h3>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <a href="mailto:hello@jidigitalworks.com" style="color:#0369A1;font-size:13px;font-weight:600;text-decoration:none" style-hover="color:#38BDF8">hello@jidigitalworks.com</a>
+          <a href="mailto:hello@jidigitalworks.com" style="color:#0369A1;font-size:13px;font-weight:600;text-decoration:none" style-hover="color:#38BDF8">WhatsApp us →</a>
+          <span style="color:#64748B;font-size:12.5px;line-height:1.6">Replies within 4 business hours,<br>Monday–Friday.</span>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:clamp(24px,3vw,32px)">
+        <h3 style="margin:0 0 12px;font-size:15px;font-weight:600">What happens on the call</h3>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-size:12.5px;color:#334155;display:flex;gap:8px"><span style="color:#0369A1;font-weight:700">1.</span>We map what's eating your time</span>
+          <span style="font-size:12.5px;color:#334155;display:flex;gap:8px"><span style="color:#0369A1;font-weight:700">2.</span>You get a delegation plan + exact pricing</span>
+          <span style="font-size:12.5px;color:#334155;display:flex;gap:8px"><span style="color:#0369A1;font-weight:700">3.</span>If it fits, meet your team member within 48h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Site Footer" cta-hide="yes" hint-size="100%,620px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 1, name: "", email: "", website: "", services: [], budget: "", timing: "", note: "", country: "" };
+
+  chip(active) {
+    return {
+      padding: "9px 15px", borderRadius: 999, fontSize: 12, cursor: "pointer",
+      fontFamily: "'Poppins',system-ui,sans-serif", lineHeight: 1.2, fontWeight: active ? 600 : 500,
+      background: active ? "#0369A1" : "#FFFFFF", color: active ? "#FFFFFF" : "#334155",
+      border: active ? "1px solid #0369A1" : "1px solid #CBD5E1", transition: "all .12s ease"
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const services = ["VA / Admin", "Social Media", "Design / Video", "Web Development", "CRM / Leads", "Automation", "Multiple"];
+    const budgets = ["Under $500", "$500–$1k", "$1–2.5k", "$2.5k+"];
+    const timings = ["This week", "This month", "Just exploring"];
+    return {
+      isStep1: s.step === 1, isStep2: s.step === 2, isStep3: s.step === 3, isDone: s.step === 4,
+      stepLabel: s.step === 4 ? "Done" : "Step " + s.step + " of 3",
+      progressW: (s.step === 4 ? 100 : Math.round((s.step / 3) * 100)) + "%",
+      name: s.name, email: s.email, website: s.website, note: s.note, country: s.country,
+      doneName: s.name ? ", " + s.name.split(" ")[0] : "",
+      setName: e => this.setState({ name: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      setWebsite: e => this.setState({ website: e.target.value }),
+      setNote: e => this.setState({ note: e.target.value }),
+      setCountry: e => this.setState({ country: e.target.value }),
+      next: () => this.setState({ step: Math.min(4, s.step + 1) }),
+      back: () => this.setState({ step: Math.max(1, s.step - 1) }),
+      submit: () => this.setState({ step: 4 }),
+      serviceChips: services.map(label => ({
+        label,
+        toggle: () => this.setState(prev => ({
+          services: prev.services.includes(label) ? prev.services.filter(x => x !== label) : [...prev.services, label]
+        })),
+        style: this.chip(s.services.includes(label))
+      })),
+      budgetChips: budgets.map(label => ({ label, pick: () => this.setState({ budget: label }), style: this.chip(s.budget === label) })),
+      timingChips: timings.map(label => ({ label, pick: () => this.setState({ timing: label }), style: this.chip(s.timing === label) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

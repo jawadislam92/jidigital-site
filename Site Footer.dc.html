@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Poppins',system-ui,sans-serif}*{box-sizing:border-box}</style>
+</helmet>
+<footer style="font-family:'Poppins',system-ui,sans-serif">
+  <sc-if value="{{ showCta }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="CTA band" style="background:linear-gradient(135deg,#030712 0%,#07111F 50%,#0B1B2B 100%);padding:clamp(48px,6vw,72px) clamp(20px,4vw,40px)">
+      <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+        <div style="max-width:640px">
+          <h2 style="margin:0 0 10px;color:#FFFFFF;font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.15">{{ ctaTitle }}</h2>
+          <p style="margin:0;color:rgba(255,255,255,0.78);font-size:15px;line-height:1.65;text-wrap:pretty">{{ ctaSub }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
+          <a href="Contact.dc.html" style="background:linear-gradient(135deg,#38BDF8 0%,#0EA5E9 100%);color:#07111F;font-size:15px;font-weight:600;text-decoration:none;padding:16px 30px;border-radius:999px;line-height:1;white-space:nowrap;box-shadow:0 6px 24px rgba(56,189,248,0.35)" style-hover="background:linear-gradient(135deg,#7DD3FC 0%,#38BDF8 100%);transform:translateY(-1px)">Book a Free Strategy Call</a>
+          <span style="color:rgba(255,255,255,0.6);font-size:12px">Free 20-min call · No obligation · Start within 48 hours</span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+  <section data-screen-label="Footer" style="background:#030712;padding:clamp(48px,6vw,72px) clamp(20px,4vw,40px) 32px">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px 28px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1)">
+        <div style="grid-column:span 1;min-width:220px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+            <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#38BDF8 0%,#0369A1 100%);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:700">Ji</span>
+            <span style="color:#FFFFFF;font-size:14.5px;font-weight:600">Ji Digital Works</span>
+          </div>
+          <p style="margin:0 0 16px;color:rgba(255,255,255,0.55);font-size:12.5px;line-height:1.7;text-wrap:pretty">A managed remote staffing and outsourcing agency — virtual assistants, social media, design, web development, CRM, lead generation, and automation under one accountable team.</p>
+          <p style="margin:0 0 16px;color:rgba(255,255,255,0.7);font-size:12px;line-height:1.8"><span style="color:#38BDF8;font-weight:600">Top Rated Plus Upwork Agency</span><br>107,000+ hours delivered · 1,000+ clients · 4.8/5 rating · 95% Job Success</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a href="https://www.linkedin.com" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:6px 12px" style-hover="border-color:#38BDF8;color:#38BDF8">LinkedIn</a>
+            <a href="https://www.youtube.com" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:6px 12px" style-hover="border-color:#38BDF8;color:#38BDF8">YouTube</a>
+            <a href="https://x.com" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:6px 12px" style-hover="border-color:#38BDF8;color:#38BDF8">X</a>
+            <a href="https://www.upwork.com" style="color:rgba(255,255,255,0.75);font-size:11.5px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:6px 12px" style-hover="border-color:#38BDF8;color:#38BDF8">Upwork</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 14px;color:#FFFFFF;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Services</h3>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <a href="Virtual Assistant Services.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Virtual Assistants</a>
+            <a href="Social Media Management.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Social Media Management</a>
+            <a href="Graphic Design Subscription.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Graphic Design &amp; Video</a>
+            <a href="Web Development.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Web Development</a>
+            <a href="CRM and Lead Generation.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">CRM &amp; Lead Generation</a>
+            <a href="Automation Services.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Automation &amp; AI Workflows</a>
+            <a href="Pricing.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">All Pricing</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 14px;color:#FFFFFF;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Company</h3>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <a href="About.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">About Us</a>
+            <a href="Case Studies.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Case Studies</a>
+            <a href="Blog.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Blog</a>
+            <a href="Compare vs Freelancers.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Us vs Freelancers</a>
+            <a href="Compare vs Agencies.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Us vs Expensive Agencies</a>
+            <a href="Contact.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 14px;color:#FFFFFF;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Locations Served</h3>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <a href="Location USA.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">United States</a>
+            <a href="Location UK.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">United Kingdom</a>
+            <a href="Location Canada.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Canada</a>
+            <a href="Location Australia.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Australia</a>
+            <a href="Location UAE.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">UAE &amp; Gulf</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 14px;color:#FFFFFF;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Contact</h3>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <a href="mailto:hello@jidigitalworks.com" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">hello@jidigitalworks.com</a>
+            <a href="Contact.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">WhatsApp us</a>
+            <a href="Contact.dc.html" style="color:rgba(255,255,255,0.6);font-size:12.5px;text-decoration:none" style-hover="color:#38BDF8">Book a Free Strategy Call</a>
+            <span style="color:rgba(255,255,255,0.4);font-size:12px;line-height:1.6">Replies within 4 business hours.<br>HQ: Rawalpindi, Pakistan</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:22px">
+        <span style="color:rgba(255,255,255,0.4);font-size:11.5px">© 2026 Ji Digital Works · Sparking Asia. Serving USA, UK, Canada, Australia, UAE &amp; worldwide.</span>
+        <div style="display:flex;gap:18px">
+          <a href="Legal.dc.html#privacy" style="color:rgba(255,255,255,0.5);font-size:11.5px;text-decoration:none" style-hover="color:#38BDF8">Privacy Policy</a>
+          <a href="Legal.dc.html#terms" style="color:rgba(255,255,255,0.5);font-size:11.5px;text-decoration:none" style-hover="color:#38BDF8">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:720},&quot;ctaTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Get your time (and margin) back.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaSub&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Book a free 20-minute strategy call. Leave with a clear delegation plan — even if you never hire us.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaHide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;no&quot;,&quot;yes&quot;],&quot;default&quot;:&quot;no&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const hide = (this.props.ctaHide ?? "") === "yes";
+    return {
+      showCta: !hide,
+      ctaTitle: this.props.ctaTitle ?? "Get your time (and margin) back.",
+      ctaSub: this.props.ctaSub ?? "Book a free 20-minute strategy call. Leave with a clear delegation plan — even if you never hire us."
+    };
+  }
+}
+</script>
+</body>
+</html>
